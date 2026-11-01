@@ -31,11 +31,11 @@ variable "image_tag" {
 variable "option_a" {
   description = "Voting option A"
   type        = string
-  default     = "ביבי"
+  default     = "חתולים"
 }
 
 variable "option_b" {
   description = "Voting option B"
   type        = string
-  default     = "אייזנקוט"
+  default     = "כלבים"
 }
