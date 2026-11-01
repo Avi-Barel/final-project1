@@ -13,6 +13,7 @@ module "vote" {
   name               = "${local.name}-vote"
   cluster_id         = aws_ecs_cluster.this.id
   execution_role_arn = aws_iam_role.execution.arn
+  task_role_arn      = aws_iam_role.task.arn
   image              = "${data.aws_ecr_repository.vote.repository_url}:${var.image_tag}"
   subnets            = local.public_subnet_ids
   security_groups    = [aws_security_group.ecs.id]
@@ -34,6 +35,7 @@ module "result" {
   name               = "${local.name}-result"
   cluster_id         = aws_ecs_cluster.this.id
   execution_role_arn = aws_iam_role.execution.arn
+  task_role_arn      = aws_iam_role.task.arn
   image              = "${data.aws_ecr_repository.result.repository_url}:${var.image_tag}"
   subnets            = local.public_subnet_ids
   security_groups    = [aws_security_group.ecs.id]
@@ -61,6 +63,7 @@ module "worker" {
   name               = "${local.name}-worker"
   cluster_id         = aws_ecs_cluster.this.id
   execution_role_arn = aws_iam_role.execution.arn
+  task_role_arn      = aws_iam_role.task.arn
   image              = "${data.aws_ecr_repository.worker.repository_url}:${var.image_tag}"
   subnets            = local.public_subnet_ids
   security_groups    = [aws_security_group.ecs.id]

@@ -25,6 +25,12 @@ variable "execution_role_arn" {
   type        = string
 }
 
+variable "task_role_arn" {
+  description = "Task IAM role ARN (needed for ECS Exec)"
+  type        = string
+  default     = null
+}
+
 variable "image" {
   description = "ECR image URI with tag"
   type        = string
